@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Budget Planner</title>
+    
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/styles/stylebp.css">
+
+  </head>
+  
+  <body>
+
+      <div class="container">
+        <div class="header"> 
+          <h1>Budget  Planner </h1> 
+          <center><p><strong><span style="color: #eb9364;font-weight:bold"> Plan </span><span style="color:#eb9364;font-weight:bold">Today </span> <strong> <span style="color:#eb9364;font-weight:bold">for</strong> <span style="color:#eb9364;font-weight:bold">Tomorrow </span></p></center>
+          <br></div></div>
+
+        <div class="budget-section">
+         
+          <div class="budget col col-md col-sm">
+            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Income</span></h2>
+            <p class="amount">$ <span id="budgetAmount">0</span></p>
+          </div>
+
+          <div class="expenses col col-md col-sm">
+            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Expenses</span></h2>
+            <p class="exp-amount">$ <span id="expensesAmount">0</span></p>
+          </div>
+          
+          <div class="balance col col-md col-sm">
+            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Remaining</span></h2>
+            <p class="amount bala">$ <span id="balanceAmount">0</span></p>
+          </div>
+        </div><hr>
+
+     
+        <h2 style="color: #eb9364;"> <center> &nbsp;  Summary</center></h2>
+        
+        <div id="displayExpenses">
+          <div class="budget-list">
+            
+            <div class="col">
+              <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Expenses</span></h3>
+            </div>
+            
+            <div class="col">
+              <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Spent</span></h3>
+            </div>
+            
+            <div class="col"> <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Action</span></h3></div>
+          </div><hr><br>
+         
+          <div &nbsp &nbsp &nbsp id="displayCategories" style="width: 25%;
+          display: table;"></div><br>
+          <div id="expValue"></div>
+        </div>
+      </div>
+
+      <div class="toggle">
+        <button id="myBtn" type="button" title="Add bills & income">+</button>
+      </div>
+
+      <div class="toggle2">
+        <button id="myBtn2" type="button" title="Boost your Budget"> <img src="../static/images/boostbtn.png" height ="50" width="30" /></button>
+      </div>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal">
+       
+        <!-- Modal content -->
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2><center>Tell us a little about you!</center></h2>
+            <hr class="line">
+          </div>
+
+          <div class="modal-body">
+            <div class="budget-form" id="budgetform">
+              <form id="addForm"><br><center>
+                <label for=""> Income Amount</label> <br/>
+                <input type="number" id="number" /> <br />
+                <button type="submit">Add Income</button>
+              </center></form>
+            </div>
+
+            <div class="financialg-form" id = "financialgform">
+              <form action="" id="addfinancialg"><center>
+                <label for="">Financial Goals (Choose all that apply)</label> <br><br>
+                <select id="selections" name="selections" size="4" multiple>
+                  <option value="payofdebt">Pay off Debt</option>
+                  <option value="saveforretirement">Save for Retirement</option>
+                  <option value="saveforcollege">Save for College</option>
+                  <option value="travel">Travel</option>
+                </select><br><br>
+                <input type="submit" value="Continue" style = "font-size: 16px; padding: 10px 40px; cursor: pointer;
+                border-radius: 6px; font-weight: 400; color: #ffffff;; background-color: #eb9364; border: none ">
+              </center></form>
+            </div>
+
+            <div class="expense-form" id="expense-form">
+              <form action="" id="expForm"><center>
+
+                <div class="">
+                  <select id="categoriesSelect">
+                    <option>Select Expense Type</option>
+                    <option>Needs</option>
+                    <option>Wants</option>
+                    <option>Savings</option>
+                    <option>Debt</option>
+                  </select><br>
+                  <input type="button" onclick="getCategories()" value="Add" style = "font-size: 16px; padding: 10px 40px; cursor: pointer;
+                  border-radius: 6px; font-weight: 400; color: #ffffff;; background-color: #eb9364; border: none ">
+                </div>
+
+                <div class="">
+                  <label for="">Expense Name</label> <br />
+                  <input type="text" id="expName" />
+                </div>
+
+                <div class="">
+                  <label for="">Amount</label> <br />
+                  <input type="number" id="expNumber" />
+                </div>
+
+                <button type="submit" id="submitExpen">Add Expense</button>
+              </center></form>
+
+              <center><button onclick="callBudget()" id="bug">
+                Back to reset Income
+              </button></center>
+
+            </div>
+
+            <div class="edit-form" id="editForm">
+              <form action="" id="saveEdit"><center>
+                
+                <div class="">
+                  <label for="">Edit expense type</label> <br />
+                  <input type="text" id="editExpName" />
+                </div>
+
+                <div class="">
+                  <label for="">Edit amount</label> <br />
+                  <input type="number" id="editExpNumber" />
+                </div>
+
+                <button type="submit">Update</button>
+              </center></form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="../static/script/main.js"></script>
+    </body>
+  </html>

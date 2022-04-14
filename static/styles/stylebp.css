@@ -1,133 +1,195 @@
-
-
-@font-face {
-	font-family: "General";
-	src: url("../styles/font/Nunito-ExtraLight.ttf");
-  }
-  @font-face {
-	font-family: "heading";
-	src: url("../styles/font/Nunito-Bold.ttf");
-  }
   body {
 	margin: 0;
-	padding: 0;
+	padding: 0px;
 	width: 100%;
-	font-family: "General";
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	height: 100vh;
-	background-color:#bbb7b1;
+	background-image: repeating-linear-gradient(rgba(215, 236, 235, 0.452), rgba(212, 212, 203, 0.37) 10%, rgba(195, 232, 236, 0.281) 90%);
   }
+
   .container {
-	min-height: 80vh;
+	min-height: 35vh;
+    margin: 0%;
+    padding: 0px;
   }
+
   .header {
-	height: 60px;
-	width: 100%;
+    position: initial;
+    bottom: 120%;
+    background: rgb(14, 13, 13); 
+    background: #212529; /* Black background with 0.5 opacity */
+    color: #050127;
+    width: 100%;
+    padding: 20px;
   }
+
   h1 {
-	margin: 0;
 	text-align: center;
-	font-family: "heading";
-	padding-top: 10px;
+	font-family: cursive;
+    color: rgba(233, 241, 240, 0.788);
   }
+
+  h2{
+    color: rgb(73, 73, 78);
+    margin:2%;
+    padding:0%;
+    font-family: Bradley Hand, cursive;
+  }
+  h3{
+	  color:#51cfa9;
+	  font-family: Bradley Hand, cursive;
+  }
+  hr.line {
+    border-top: 1px solid #eb9364;
+  }
+
+  p{
+    color: rgb(73, 73, 78);   
+    margin:-1%;
+    padding:0%;
+    font-family: Bradley Hand, cursive;
+}
+
   .budget-section {
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
 	width: 100%;
-	min-height: 160px;
-	font-weight: 900;
+	height: 100px;
+	font-weight: 50;
+    margin: 0px;
+	background-color: #e3f4f3;
+    padding: 0px;
+    font-family: Bradley Hand, cursive;
   }
+
   .budget-list {
+    margin: 0%;
+    padding:0px;
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
 	width: 100%;
 	height: 70px;
 	font-size: 20px;
+	background-color: #e3f4f3;
+    font-family: Bradley Hand, cursive;
   }
+
   .exp-amount {
-	color: #b80c09;
+	color:rgb(73, 73, 78);
   }
+
   .amount {
-	color: #317b22;
+	color: rgb(73, 73, 78);
   }
+
   .col {
 	width: 40%;
 	text-align: center;
 	text-transform: capitalize;
   }
+
   .col p {
-	font-size: 40px;
-	padding-top: 5px;
+	font-size: 30px;
+	padding-top: 0px;
 	margin: 0;
   }
+
   .toggle {
 	position: fixed;
 	right: 0;
 	bottom: 18px;
   }
+
   .toggle button {
 	border: none;
-	border-radius: 600px;
-	background: #04458f;
+	border-radius: 400px;
+	background: rgba(12, 173, 160, 0.788);
 	padding: 14px 20px;
 	color: #ffffff;
 	font-size: 30px;
 	margin: 10px 50px 0 0;
 	cursor: pointer;
   }
-  /* modal form */
+
+  .toggle2 {
+	position: fixed;
+	right: 0;
+	bottom: 90px;
+  }
+
+  .toggle2 button {
+	border: double;
+	border-radius: 400px;
+	padding: 2px 11px;
+	margin: 0px 51px 0 0;
+	cursor: pointer;
+  }
+
+
+  /* Modal (Pop-up window) */
   .budget-form {
 	width: 100%;
 	min-height: 200px;
   }
+
   form {
 	margin: 10px 0 20px 10px;
 	min-height: 100px;
   }
+
   input {
-	width: 60%;
+	width: 27%;
 	padding: 8px 0;
 	border-radius: 6px;
 	border: 1px solid gray;
 	margin: 20px 0;
 	padding-left: 5px;
-	color: #495057;
+	color: #020a00;
   }
+
   .budget-list .exp p {
-	color: #b80c09;
+	color: rgb(73, 73, 78);
 	font-size: 18px;
   }
+  
   #displayExpenses {
 	width: 100%;
 	display: none;
   }
+
   .expValue {
 	display: flex;
 	justify-content: space-around;
 	height: 40px;
-	font-weight: 900;
+	font-weight: 100;
 	text-align: center;
   }
+  
   #expTitleName {
 	width: 40%;
   }
+
   #expValueAmount {
 	width: 40%;
   }
+
   #edite_delete {
 	width: 40%;
   }
   #edite_delete img {
 	cursor: pointer;
   }
+
   #edite_delete button {
 	margin-left: 1px;
 	background: none;
 	border: none;
   }
+
   .budget-form button {
-	background: rgb(1, 83, 1);
+	background: #eb9364;
 	border: none;
 	border-radius: 6px;
 	color: #ffffff;
@@ -137,24 +199,45 @@
 	font-size: 16px;
 	font-weight: 400;
   }
+
+  .financialg-form button {
+	background: #eb9364;
+	border: none;
+	border-radius: 6px;
+	color: #ffffff;
+	padding: 10px 30px;
+	cursor: pointer;
+	text-transform: capitalize;
+	font-size: 16px;
+	font-weight: 400;
+  }
+
   #bug {
 	font-size: 14px;
 	background: none;
-	color: #04458f;
+	color: rgba(12, 173, 160, 0.788);
 	margin: 0px 0px 15px 10px;
 	text-align: justify;
 	padding: 0;
   }
+
   #expense-form {
 	width: 100%;
 	display: none;
   }
+
+  #financialg-form {
+	width: 100%;
+	display: none;
+  }
+
   #editForm {
 	display: none;
 	width: 100%;
   }
+
   #editForm button {
-	background: #b80c09;
+	background:#eb9364;
 	border: none;
 	border-radius: 6px;
 	color: #ffffff;
@@ -164,8 +247,9 @@
 	font-size: 16px;
 	font-weight: 400;
   }
+
   .expense-form button {
-	background: #b80c09;
+	background: #eb9364;
 	border: none;
 	border-radius: 6px;
 	color: #ffffff;
@@ -175,29 +259,29 @@
 	font-size: 16px;
 	font-weight: 400;
   }
-  /* The Modal (background) */
+  
+  /* background for Modal */
   .modal {
 	display: block;
 	position: fixed;
-	z-index: 1;
+	z-index: 1; /* Sit on top */
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.4);
-	animation-name: fadeIn;
-	animation-duration: 0.4s;
-	text-transform: capitalize;
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    animation-name: fadeIn;
+	animation-duration: 0.0s;
 	font-weight: 600;
-  }
+}
   
   /* Modal Content */
   .modal-content {
 	position: fixed;
 	top: 20%;
 	left: 25%;
-	background-color: #fefefe;
+	background-color: rgb(247, 243, 243);
 	width: 50%;
 	min-height: 40px;
 	animation-name: slideIn;
@@ -213,15 +297,17 @@
 	cursor: pointer;
 	color: #000;
   }
+  
   .modal-header {
 	padding: 2px 16px;
-	border-bottom: 2px solid gray;
+    color: rgb(73, 73, 78);
+	
   }
   .modal-body {
 	padding: 2px 16px;
   }
   
-  /* Add Animation */
+  /* Animation */
   @keyframes slideIn {
 	from {
 	  top: -300px;

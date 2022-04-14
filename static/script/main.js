@@ -1,16 +1,30 @@
 const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
+const btn = document.getElementById("myBtn");  // toggle button for income and adding expenses
+const btn2 = document.getElementById("myBtn2") // boost button
 const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
 btn.onclick = function () {
   expName.value = "";
   expNumber.value = "";
   expenseForm.style.display = "block";
+  financialgform.style.display = "none"
   editForm.style.display = "none";
   modal.style.display = "block";
 };
+
+// When the user clicks the button2, open the modal 
+btn2.onclick = function () {
+  editForm.style.display = "none";
+  modal.style.display = "none";
+};
+
+// When the user clicks on <span> (x), close the modal
 span.onclick = function () {
   modal.style.display = "none";
 };
+
+// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -18,7 +32,12 @@ window.onclick = function (event) {
 };
 
 const amountInput = document.getElementById("number");
+const selectionInput = document.getElementById("selections");
+
 const addForm = document.getElementById("addForm");
+
+const addfinancialg = document.getElementById("addfinancialg");
+
 const budgetAmount = document.getElementById("budgetAmount");
 const balanceAmount = document.getElementById("balanceAmount");
 
@@ -34,15 +53,27 @@ const displayExpenses = document.getElementById("displayExpenses");
 const expenseForm = document.getElementById("expense-form");
 const budgetform = document.getElementById("budgetform");
 
+const financialgform = document.getElementById("financialgform");
+
 let expName = document.getElementById("expName");
 let expNumber = document.getElementById("expNumber");
 let id = 0;
 let details = [];
 
-function getBudgetAmount(amount) {
+function getfinancialgoal(selections) {  
+  if (selections) {
+    selectionInput.value = "";
+    financialgform.style.display="none";
+    expenseForm.style.display = "block";
+    budgetform.style.display = "none";
+    editForm.style.display = "none";
+  }
+}
+
+function getBudgetAmount(amount) {  //Get Income from user
   if (!amount) {
     amountInput.style.border = "1px solid #b80c09";
-    amountInput.placeholder = "input can not be empty";
+    amountInput.placeholder = "Income Amount is required";
     amountInput.style.color = "#b80c09";
     setTimeout(() => {
       amountInput.style.color = "#495057";
@@ -51,33 +82,38 @@ function getBudgetAmount(amount) {
   } else {
     budgetAmount.innerText = amount;
     balanceAmount.innerText = amount;
-    expenseForm.style.display = "block";
+    expenseForm.style.display = "none";
+    financialgform.style.display = "block"
     budgetform.style.display = "none";
     editForm.style.display = "none";
     amountInput.value = "";
   }
 }
 
+
 function addExpenses(name, number) {
+  
   if (!name.length || !number.length) {
     expName.style.border = "1px solid #b80c09";
-    expName.placeholder = "input can not be empty";
+    expName.placeholder = "Please enter expense type";
     expName.style.color = "#b80c09";
 
     expNumber.style.border = "1px solid #b80c09";
-    expNumber.placeholder = "input can not be empty";
+    expNumber.placeholder = "Please enter expense amount";
     expNumber.style.color = "#b80c09";
 
     setTimeout(() => {
       expName.style.color = "#495057";
       expName.style.border = "1px solid gray";
-      expName.placeholder = "input can not be empty";
+      expName.placeholder = "This field can not be empty";
 
-      expNumber.placeholder = "input can not be empty";
+      expNumber.placeholder = "This field can not be empty";
       expNumber.style.border = "1px solid gray";
       expNumber.style.color = "#495057";
     }, 3000);
-  } else {
+  }
+  
+  else {
     const userExp = {
       id: id,
       name: name,
@@ -88,6 +124,7 @@ function addExpenses(name, number) {
     id++;
     expName.value = "";
     expNumber.value = "";
+    financialgform.style.display = "none"
   }
 }
 
@@ -100,8 +137,8 @@ function displayExp(details) {
       <div id="expValueAmount" class="exp"><p> <span>$ </span> ${details[i].number}</p></div>
       <div id="edite_delete">
         <p>
-          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"> <img src="image/edit.svg" width="15" alt=""  /></button> 
-          <button id="${details[i].id}" onclick="delExpenseDetails(${details[i].id})"><img src="image/trash.svg" width="15" alt="" /></button>
+          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"><img src="../static/images/Update_Icon.png" width="30" alt=""  /></button> 
+          <button id="${details[i].id}" onclick="delExpenseDetails(${details[i].id})"><img src="../static/images/Delete_Icon.png" width="60" alt="" /></button>
         </p>
       </div>
     </div>
@@ -120,7 +157,7 @@ function calcExpenses() {
   updateBalance();
 }
 
-function updateBalance() {
+function updateBalance() {   //Updated remaining balance = income - expenses
   balanceAmount.innerText =
     parseInt(budgetAmount.innerText) - parseInt(expensesAmount.innerText);
 }
@@ -131,7 +168,7 @@ function delExpenseDetails(id) {
   displayExp(details);
 }
 
-function editExpDetails(id) {
+function editExpDetails(id) { //Update Expenses
   expenseForm.style.display = "none";
   budgetform.style.display = "none";
   editForm.style.display = "block";
@@ -140,7 +177,7 @@ function editExpDetails(id) {
       editExpName.value = item.name;
       editExpNumber.value = item.number;
       saveEdit.children[2].id = item.id;
-      modal.style.display = "block";
+      modal.style.display = "block"; //modal to update expenses
     }
   });
 }
@@ -152,8 +189,9 @@ function getExpValue(editExpName, editExpNumber, id) {
   displayExp(details);
 }
 
-function callBudget() {
+function callBudget() {  // go back to enter income
   budgetform.style.display = "block";
+  financialgform.style.display="none";
   expenseForm.style.display = "none";
 }
 
@@ -171,3 +209,13 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   getBudgetAmount(amountInput.value);
 });
+
+addfinancialg.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getfinancialgoal(selectionInput.value);
+});
+
+function getCategories() {
+  var obj = document.getElementById("categoriesSelect");
+  document.getElementById("displayCategories").innerHTML = obj.options[obj.selectedIndex].text;
+}
