@@ -137,8 +137,8 @@ function displayExp(details) {
       <div id="expValueAmount" class="exp"><p> <span>$ </span> ${details[i].number}</p></div>
       <div id="edite_delete">
         <p>
-          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"><img src="../static/images/Update_Icon.png" width="30" alt=""  /></button> 
-          <button id="${details[i].id}" onclick="delExpenseDetails(${details[i].id})"><img src="../static/images/Delete_Icon.png" width="60" alt="" /></button>
+          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"><img src="images/Update_Icon.png" width="30" alt=""  /></button> 
+          <button id="${details[i].id}" onclick="delExpenseDetails(${details[i].id})"><img src="images/Delete_Icon.png" width="60" alt="" /></button>
         </p>
       </div>
     </div>
