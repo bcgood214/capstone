@@ -359,9 +359,8 @@ function getFittest(group) {
         if (group[i][1] > fittest[1]) {
             fittest = group[i];
         }
-
-        return fittest;
     }
+    return fittest;
 }
 
 /* function eval(ind, steps, income, goals, priority) {
@@ -460,19 +459,16 @@ function main(poolSize, gens, savings, debt, subGroupSize, income, costs, months
 
         // Bring the fittest individual from the current generation into the next generation
         let fittest = getFittest(generation);
+        console.log(fittest);
 
         nextGen.push(fittest[0]);
 
         pool = nextGen;
 
-        if (i == gens-1) {
-            console.log(fittest);
-        }
-
 
     }
 
-    console.log(pool)
+    // console.log(pool)
 
     let generation = [];
 
