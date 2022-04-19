@@ -6,7 +6,6 @@
     
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="styles/stylebp.css">
 
@@ -23,17 +22,17 @@
         <div class="budget-section">
          
           <div class="budget col col-md col-sm">
-            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Income</span></h2>
+            <h2 style="background-color:rgba(255, 99, 71, 0.5);"><span style="color:rgb(73, 73, 78);font-weight:bold">Income</span></h2>
             <p class="amount">$ <span id="budgetAmount">0</span></p>
           </div>
 
           <div class="expenses col col-md col-sm">
-            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Expenses</span></h2>
+            <h2 style="background-color:rgba(255, 99, 71, 0.5);"><span style="color:rgb(73, 73, 78);font-weight:bold">Expenses</span></h2>
             <p class="exp-amount">$ <span id="expensesAmount">0</span></p>
           </div>
           
           <div class="balance col col-md col-sm">
-            <h2><span style="color:rgb(73, 73, 78);font-weight:bold">Remaining</span></h2>
+            <h2 style="background-color:rgba(255, 99, 71, 0.5);"><span style="color:rgb(73, 73, 78);font-weight:bold">Remaining</span></h2>
             <p class="amount bala">$ <span id="balanceAmount">0</span></p>
           </div>
         </div><hr>
@@ -43,7 +42,11 @@
         
         <div id="displayExpenses">
           <div class="budget-list">
-            
+
+            <div class="col">
+              <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Category</span></h3>
+            </div>
+
             <div class="col">
               <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Expenses</span></h3>
             </div>
@@ -55,8 +58,7 @@
             <div class="col"> <h3><span style="color:rgb(73, 73, 78);font-weight:bold">Action</span></h3></div>
           </div><hr><br>
          
-          <div &nbsp &nbsp &nbsp id="displayCategories" style="width: 25%;
-          display: table;"></div><br>
+          
           <div id="expValue"></div>
         </div>
       </div>
@@ -66,7 +68,7 @@
       </div>
 
       <div class="toggle2">
-        <button id="myBtn2" type="button" title="Boost your Budget"> <img src="images/boostbtn.png" height ="50" width="30" /></button>
+        <button id="optimizebtn" type="button" title="Boost your Budget"> <img src="images/boostbtn.png" height ="50" width="30"></button>
       </div>
 
       <!-- Modal -->
@@ -90,7 +92,7 @@
               </center></form>
             </div>
 
-            <div class="financialg-form" id = "financialgform">
+             <div class="financialg-form" id = "financialgform">
               <form action="" id="addfinancialg"><center>
                 <label for="">Financial Goals (Choose all that apply)</label> <br><br>
                 <select id="selections" name="selections" size="4" multiple>
@@ -102,7 +104,7 @@
                 <input type="submit" value="Continue" style = "font-size: 16px; padding: 10px 40px; cursor: pointer;
                 border-radius: 6px; font-weight: 400; color: #ffffff;; background-color: #eb9364; border: none ">
               </center></form>
-            </div>
+            </div> 
 
             <div class="expense-form" id="expense-form">
               <form action="" id="expForm"><center>
@@ -115,9 +117,9 @@
                     <option>Savings</option>
                     <option>Debt</option>
                   </select><br>
-                  <input type="button" onclick="getCategories()" value="Add" style = "font-size: 16px; padding: 10px 40px; cursor: pointer;
-                  border-radius: 6px; font-weight: 400; color: #ffffff;; background-color: #eb9364; border: none ">
-                </div>
+                  <!-- <input type="button" onclick="getCategories()" value="Add" style = "font-size: 16px; padding: 10px 40px; cursor: pointer;
+                  border-radius: 6px; font-weight: 400; color: #ffffff;; background-color: #eb9364; border: none "> -->
+                </div><br>
 
                 <div class="">
                   <label for="">Expense Name</label> <br />
@@ -139,10 +141,10 @@
             </div>
 
             <div class="edit-form" id="editForm">
-              <form action="" id="saveEdit"><center>
+              <form action="" id="saveEdit">
                 
                 <div class="">
-                  <label for="">Edit expense type</label> <br />
+                  <label for="">Edit expense name</label> <br />
                   <input type="text" id="editExpName" />
                 </div>
 
@@ -152,12 +154,13 @@
                 </div>
 
                 <button type="submit">Update</button>
-              </center></form>
+              </form>
             </div>
           </div>
         </div>
       </div>
 
       <script src="script/main.js"></script>
+    
     </body>
   </html>

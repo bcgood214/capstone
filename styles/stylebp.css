@@ -166,17 +166,21 @@
 	font-weight: 100;
 	text-align: center;
   }
+
+  #expType {
+	width: 25%;
+  }
   
   #expTitleName {
-	width: 40%;
+	width: 25%;
   }
 
   #expValueAmount {
-	width: 40%;
+	width: 25%;
   }
 
   #edite_delete {
-	width: 40%;
+	width: 25%;
   }
   #edite_delete img {
 	cursor: pointer;
