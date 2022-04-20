@@ -3,6 +3,10 @@ const btn = document.getElementById("myBtn");  // toggle button for adding incom
 const span = document.getElementsByClassName("close")[0];
 const optimizebtn = document.getElementById("optimizebtn") // boost button
 
+function getPercentages(ind) {
+    return ind[0];
+}
+
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
   expName.value = "";
@@ -26,6 +30,7 @@ optimizebtn.onclick = function(){
      var priority    = "needs" ;
     
     var result = main(poolSize, gens, savings, debt, subGroupSize, income, costs, months, priority);
+    alert(getPercentages(result));
     
     // 1. get id of the expense list
     // 2. check expense type and multiply the expense amount with the percentage of
