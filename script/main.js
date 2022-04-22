@@ -21,13 +21,26 @@ btn.onclick = function () {
 optimizebtn.onclick = function(){
      var poolSize = 20;
      var gens     = 1000;
-     var savings  = true;
-     var debt     = true;
+     var savings  = false;
+     var debt     = false;
      var subGroupSize = 2;
      var income = document.getElementById("budgetAmount").value;
-     var costs  = document.getElementById("expensesAmount").innerText;  //total costs
-     var months      = 1;
-     var priority    = "needs" ;
+     
+     //var costs  = document.getElementById("expensesAmount").innerText;  //total costs
+     //var costs= [3000, 1000, 0, 0];
+     var costs = [];
+    if (expType.value = "Needs"){
+        costs[0] = document.getElementById("expNumber").value;}
+    else if (expType.value = "Wants"){
+        costs[1] = document.getElementById("expNumber").value;}
+    else if (expType.value = "Savings"){
+        costs[2] = document.getElementById("expNumber").value;}
+    else if (expType.value = "Debt"){
+        costs[3] = document.getElementById("expNumber").value;}
+
+    var months = 1;
+    
+     var priority    = [4, 1, 1, 1] ;
     
     var result = main(poolSize, gens, savings, debt, subGroupSize, income, costs, months, priority);
     alert(getPercentages(result));
