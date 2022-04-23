@@ -33,6 +33,7 @@
             let email = document.getElementById("email");
             let password = document.getElementById("password");
             let submit = document.getElementById("login");
+            
         </script>
 
     </body>
@@ -59,6 +60,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const auth = getAuth();
+        
 
         submit.addEventListener('click',(e)=>{
             email = email.value;
@@ -82,8 +84,12 @@
         onAuthStateChanged(auth, (user) => {
           if(user) {
             window.location = 'billreminder.html'; //After successful login, user will be redirected to billreminder.html
+          }else{
+            console.log('User is logged out!');
           }
         });
+
+        
 
       </script>
 </html>
