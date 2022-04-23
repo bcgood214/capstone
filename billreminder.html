@@ -78,4 +78,60 @@
       </script>
       <script src="./script/billreminder.js"></script>
     </body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+          apiKey: "AIzaSyDFsPxIYN1cnP_90b36eKoC9zaDJ2P3bPA",
+          authDomain: "capstone-c471e.firebaseapp.com",
+          projectId: "capstone-c471e",
+          storageBucket: "capstone-c471e.appspot.com",
+          messagingSenderId: "93338339606",
+          appId: "1:93338339606:web:cd37ad980f63fd813ba837"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth();
+      const submit = document.getElementById("ok-button")
+
+      submit.addEventListener("click", (e) => {
+        let title = document.getElementById("name").value;
+        let amount = document.getElementById("count").value;
+          try {
+            console.log(title);
+            console.log(amount);
+            console.log(auth.currentUser.email);
+            const docRef = addDoc(collection(db, "alerts"), {
+              title: title,
+              amount: amount,
+              email: auth.currentUser.email
+            });
+            alert("Bill reminder set");
+          } catch (excp) {
+
+          }
+      });
+
+      const querySnapshot = await getDocs(collection(db, "alerts"));
+      // simply access this array to get the alerts for the user
+      let userAlerts = [];
+
+      querySnapshot.forEach((doc) => {
+        var data = doc.data();
+        if (data.email == auth.currentUser.email) {
+          userAlerts.push([data.title, data.amount]);
+        }
+      });
+
+      console.log(userAlerts)
+
+    </script>
     </html>
