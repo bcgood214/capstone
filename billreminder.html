@@ -9,6 +9,8 @@
     </head>
     
     <body>
+      <br> &nbsp;
+      <button href="" type="button" id="logout"> Logout</button>
       <div class="content">
         <div class="calendar-container">
           <div class="calendar"> 
@@ -76,13 +78,15 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
       </script>
-      <script src="./script/billreminder.js"></script>
+      <script src="./script/billreminder.js">
+        let logout = document.getElementById('logout');
+      </script>
     </body>
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
       import { getFirestore, collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+      import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
     
@@ -102,6 +106,14 @@
       const auth = getAuth();
       const submit = document.getElementById("ok-button")
 
+
+      //logout
+      logout.addEventListener('click',(e) => {
+        e.preventDefault();
+        auth.signOut();
+        console.log('user signed out');
+      });
+      
       submit.addEventListener("click", (e) => {
         let title = document.getElementById("name").value;
         let amount = document.getElementById("count").value;
