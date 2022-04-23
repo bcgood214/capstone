@@ -105,6 +105,10 @@
       submit.addEventListener("click", (e) => {
         let title = document.getElementById("name").value;
         let amount = document.getElementById("count").value;
+        // date is stored in Year-Month-Day format
+        let timeStamp = selectedDate.year + '-' + selectedDate.month + '-' + selectedDate.day;
+        console.log(timeStamp);
+        console.log(selectedDate.month);
           try {
             console.log(title);
             console.log(amount);
@@ -112,6 +116,7 @@
             const docRef = addDoc(collection(db, "alerts"), {
               title: title,
               amount: amount,
+              date: timeStamp,
               email: auth.currentUser.email
             });
             alert("Bill reminder set");
@@ -127,7 +132,7 @@
       querySnapshot.forEach((doc) => {
         var data = doc.data();
         if (data.email == auth.currentUser.email) {
-          userAlerts.push([data.title, data.amount]);
+          userAlerts.push([data.title, data.amount, data.date]);
         }
       });
 
