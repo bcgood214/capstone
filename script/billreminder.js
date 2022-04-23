@@ -77,6 +77,8 @@ function days_in_month(month, year) {
     return (monthEnd - monthStart) / (1000 * 60 * 60 * 24);    
 }
 
+// on save_progress branch
+
 // Event handler for when a date is clicked
 function date_click(event) {
     $(".events-container").show(250);
