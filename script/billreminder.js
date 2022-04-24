@@ -1,3 +1,8 @@
+var selectedDate = {
+    day: 10,
+    month: 10,
+    year: 2022
+}
 // Setup the calendar with the current date
 $(document).ready(function(){
     var date = new Date();
@@ -21,6 +26,7 @@ function init_calendar(date) {
     var calendar_days = $(".tbody");
     var month = date.getMonth();
     var year = date.getFullYear();
+    selectedDate.year = year;
     var day_count = days_in_month(month, year);
     var row = $("<tr class='table-row'></tr>");
     var today = date.getDate();
@@ -77,6 +83,8 @@ function date_click(event) {
     $("#dialog").hide(250);
     $(".active-date").removeClass("active-date");
     $(this).addClass("active-date");
+    selectedDate.day = event.data.day
+    selectedDate.month = event.data.month;
     show_events(event.data.events, event.data.month, event.data.day);
 };
 
@@ -89,6 +97,7 @@ function month_click(event) {
     $(this).addClass("active-month");
     var new_month = $(".month").index(this);
     date.setMonth(new_month);
+    selectedDate.month = date.getMonth();
     init_calendar(date);
 }
 
@@ -99,6 +108,7 @@ function next_year(event) {
     var new_year = date.getFullYear()+1;
     $("year").html(new_year);
     date.setFullYear(new_year);
+    selectedDate.year = date.getFullYear();
     init_calendar(date);
 }
 
@@ -109,6 +119,7 @@ function prev_year(event) {
     var new_year = date.getFullYear()-1;
     $("year").html(new_year);
     date.setFullYear(new_year);
+    selectedDate.year = date.getFullYear();
     init_calendar(date);
 }
 
