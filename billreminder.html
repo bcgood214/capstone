@@ -71,6 +71,7 @@
               </div>
             </form>
           </div>
+          <h4 id="savedAlerts"></h4>
       </div>
       <!-- Dialog Box-->
       <script
@@ -149,6 +150,15 @@
       });
 
       console.log(userAlerts)
+      var alertMessage = "";
+
+      for (let i = 0; i < userAlerts.length; i++) {
+        alertMessage += "<br>" + userAlerts[i][0] + ": " + userAlerts[i][1] + ", Due Date: " + userAlerts[i][2] + ".";
+      }
+
+      document.getElementById("savedAlerts").innerHTML = alertMessage;
+
+
 
     </script>
     </html>
