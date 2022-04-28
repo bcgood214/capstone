@@ -17,18 +17,19 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
+ 
 // When the user clicks the boost button, call main()  
 optimizebtn.onclick = function(){
-     var poolSize = 20;
-     var gens     = 1000;
-     var savings  = false;
-     var debt     = false;
-     var subGroupSize = 2;
-     var income = document.getElementById("budgetAmount").value;
+    var poolSize = 20;
+    var gens     = 1000;
+    var savings = true;
+    var debt = true;
+    var subGroupSize = 2;
+    var income = document.getElementById("budgetAmount").value;
      
-     //var costs  = document.getElementById("expensesAmount").innerText;  //total costs
-     //var costs= [3000, 1000, 0, 0];
-     var costs = [];
+    //var costs  = document.getElementById("expensesAmount").innerText;  //total costs
+    //var costs= [3000, 1000, 0, 0];
+    var costs = [];
     if (expType.value = "Needs"){
         costs[0] = document.getElementById("expNumber").value;}
     else if (expType.value = "Wants"){
@@ -39,8 +40,7 @@ optimizebtn.onclick = function(){
         costs[3] = document.getElementById("expNumber").value;}
 
     var months = 1;
-    
-     var priority    = [4, 1, 1, 1] ;
+    var priority = [4, 1, 1, 1];
     
     var result = main(poolSize, gens, savings, debt, subGroupSize, income, costs, months, priority);
     alert(getPercentages(result));
@@ -259,10 +259,7 @@ function getCategories() {
 }
 
 
-
-
-
-
+// Algorithm for Automated Optimized Budget
 
 function checkFullness(ind) {
     let total = 0;
